@@ -4,3 +4,10 @@
     copy:
       src: site/
       dest: /var/www/default
+  
+  - name: "edit html"
+    replace:
+      path: /var/www/default/index.html
+      regexp: 'Host Name'
+      replace: 'Host: {{ inventory_hostname }}'
+      backup: yes
